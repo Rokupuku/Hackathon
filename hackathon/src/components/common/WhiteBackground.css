@@ -1,0 +1,19 @@
+.white-background {
+  background-color: white;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  margin-top: -20px;
+  padding-top: 40px; /* 토글 메뉴와 겹치지 않도록 상단 여백 추가 */
+  position: relative;
+  z-index: 1;
+  min-height: 60vh;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+  .white-background {
+    padding: 15px;
+    padding-top: 30px; /* 모바일 상단 여백 조정 */
+  }
+} 

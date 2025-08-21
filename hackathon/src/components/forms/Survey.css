@@ -1,0 +1,207 @@
+.survey {
+  padding: 20px;
+  padding-top: 100px; /* 토글 메뉴와 겹치지 않도록 상단 여백 추가 */
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.survey-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4A90E2, #357ABD);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.question {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #666;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+.multiple-choice-hint {
+  font-size: 14px;
+  color: #4A90E2;
+  margin: 0 0 8px 0;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.option-button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.option-button:hover {
+  border-color: #0040e0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 64, 224, 0.15);
+}
+
+.option-button.selected {
+  border-color: #0040e0;
+  background: #f0f4ff;
+  box-shadow: 0 4px 12px rgba(0, 64, 224, 0.2);
+}
+
+.option-button.selected:hover {
+  border-color: #0040e0;
+  background: #e6f0ff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 64, 224, 0.25);
+}
+
+.option-icon {
+  font-size: 24px;
+  width: 40px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.option-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+}
+
+.checkmark {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #4CAF50;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.navigation {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.nav-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.prev-button {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.prev-button:hover:not(:disabled) {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.prev-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.next-button {
+  background: #4A90E2;
+  color: white;
+}
+
+.next-button:hover:not(:disabled) {
+  background: #357ABD;
+  transform: translateY(-2px);
+}
+
+.next-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+  .survey {
+    padding: 15px;
+    padding-top: 90px; /* 모바일 상단 여백 조정 */
+  }
+  
+  .question {
+    font-size: 20px;
+  }
+  
+  .subtitle {
+    font-size: 15px;
+  }
+  
+  .option-button {
+    padding: 14px;
+    gap: 12px;
+  }
+  
+  .option-icon {
+    font-size: 20px;
+    width: 32px;
+  }
+  
+  .option-text {
+    font-size: 15px;
+  }
+  
+  .nav-button {
+    padding: 10px 20px;
+    font-size: 15px;
+    min-width: 80px;
+  }
+} 

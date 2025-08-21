@@ -1,0 +1,112 @@
+.header {
+  background: linear-gradient(135deg, #4A90E2 0%, #0040e0 100%);
+  color: white;
+  padding: 40px 20px 60px;
+  padding-top: 80px; /* 토글 메뉴와 겹치지 않도록 상단 여백 추가 */
+  position: relative;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.header-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.header .header-content .greeting {
+  font-size: 25px;
+  color: #f0f0f0;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 30px 0px 0px 10px;
+}
+
+.header .header-content .subtitle {
+  font-size: 25px !important;
+  color: #f0f0f0;
+  font-weight: bold;
+  margin: 0px 0px 30px 10px;
+}
+
+.progress-section {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #9B59B6;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 14px;
+  margin: 10px 0 0 0;
+  color: #f0f0f0; 
+  opacity: 0.9;
+}
+
+.header-button {
+  background-color: white;
+  color: #4A90E2;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  width: 100%;
+  max-width: none;
+  min-width: none;
+}
+
+.header-button:hover {
+  transform: scale(1.05);
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+  .header {
+    padding: 30px 15px 50px;
+    padding-top: 70px; /* 모바일에서 상단 여백 조정 */
+  }
+  
+  .greeting {
+    font-size: 24px;
+  }
+  
+  .subtitle {
+    font-size: 16px !important;
+  }
+  
+
+} 
