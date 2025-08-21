@@ -31,7 +31,7 @@ const SurveyPage = ({ onComplete }) => {
     },
     {
       question: "이사할 집에 있는 옵션을 선택해주세요!",
-      subtitle: "이사할 곳의 유형을 알려주세요",
+      subtitle: "가구의 유형을 알려주세요",
       options: [
         { label: "세탁기", value: "washing_machine", icon: "🧺" },
         { label: "건조기", value: "dryer", icon: "🌞" },
@@ -48,7 +48,7 @@ const SurveyPage = ({ onComplete }) => {
     },
     {
       question: "이삿짐 운반은 어떻게 하실 건가요?",
-      subtitle: "이사할 곳의 유형을 알려주세요",
+      subtitle: "이삿짐 배달의 방법을 알려주세요",
       options: [
         { label: "이삿짐센터 이용", value: "moving_company", icon: "🚚" },
         { label: "자차 이동", value: "own_car", icon: "🚗" },
@@ -60,7 +60,7 @@ const SurveyPage = ({ onComplete }) => {
     },
     {
       question: "이삿날은 평일인가요 주말인가요?",
-      subtitle: "이사할 곳의 유형을 알려주세요",
+      subtitle: "이사 날짜를 알려주세요",
       options: [
         { label: "평일에 이사해요", value: "weekday", icon: "📅" },
         { label: "주말에 이사해요", value: "weekend", icon: "🎉" },
@@ -70,7 +70,7 @@ const SurveyPage = ({ onComplete }) => {
     },
     {
       question: "이삿짐의 양은 어느정도 인가요?",
-      subtitle: "이사할 곳의 유형을 알려주세요",
+      subtitle: "대략적인 양을 알려주세요",
       options: [
         { label: "박스 5개 이하 (소규모)", value: "small", icon: "📦" },
         { label: "5~15개 (중간 규모)", value: "medium", icon: "📦" },
@@ -80,7 +80,7 @@ const SurveyPage = ({ onComplete }) => {
     },
     {
       question: "이번 이사에서 특별히 신경 쓰고 싶은 부분이 있나요?",
-      subtitle: "이사할 곳의 유형을 알려주세요",
+      subtitle: "이사 준비에 신경 쓰고 싶은 부분을 알려주세요",
       options: [
         { label: "비용 절감", value: "cost_reduction", icon: "💰" },
         { label: "빠른 이사", value: "fast_move", icon: "⚡" },
