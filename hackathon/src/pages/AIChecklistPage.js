@@ -98,7 +98,7 @@ const AIChecklistPage = ({ surveyAnswers, onBackToSurvey }) => {
     <div className="ai-checklist-page">
       <Header
         greeting="AI가 만든 맞춤형 체크리스트"
-        subtitle="설문조사 결과를 바탕으로 생성되었어요"
+        subtitle="설문조사 결과를 바탕으로 생성!"
         showProgress={true}
         progressValue={100}
         progressText="체크리스트 생성 완료!"

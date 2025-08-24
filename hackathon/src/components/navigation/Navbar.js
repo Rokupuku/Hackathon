@@ -43,17 +43,23 @@ const Navbar = ({ currentPage, onPageChange, onMenuToggle }) => {
       {/* 사이드바 메뉴 */}
       <div className={`sidebar ${showMenu ? 'open' : ''}`}>
         <div className="sidebar-header">
-          <h3>모두의 이삿짐</h3>
+          <h3>이삿짐캐리</h3>
           <button className="close-button" onClick={closeMenu}>
             ✕
           </button>
         </div>
         <div className="sidebar-content">
           <button
+            className={`sidebar-item ${currentPage === 'main' ? 'active' : ''}`}
+            onClick={() => changePage('main')}
+          >
+            홈
+          </button>
+          <button
             className={`sidebar-item ${currentPage === 'welcome' ? 'active' : ''}`}
             onClick={() => changePage('welcome')}
           >
-            메인화면
+            이사 준비
           </button>
           <button
             className={`sidebar-item ${currentPage === 'survey' ? 'active' : ''}`}

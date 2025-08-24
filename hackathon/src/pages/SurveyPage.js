@@ -31,7 +31,6 @@ const SurveyPage = ({ onComplete }) => {
     },
     {
       question: "이사할 집에 있는 옵션을 선택해주세요!",
-      subtitle: "가구의 유형을 알려주세요",
       options: [
         { label: "세탁기", value: "washing_machine", icon: "🧺" },
         { label: "건조기", value: "dryer", icon: "🌞" },
@@ -40,9 +39,7 @@ const SurveyPage = ({ onComplete }) => {
         { label: "에어컨", value: "aircon", icon: "❄️" },
         { label: "냉장고", value: "refrigerator", icon: "🧊" },
         { label: "침대", value: "bed", icon: "🛏️" },
-        { label: "인터넷", value: "internet", icon: "🌐" },
-        { label: "신발장", value: "shoerack", icon: "👟" },
-        { label: "싱크대", value: "sink", icon: "🚰" }
+        { label: "인터넷", value: "internet", icon: "🌐" }
       ],
       multipleChoice: true // This question allows multiple selections
     },

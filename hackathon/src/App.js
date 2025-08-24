@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import MainPage from './pages/MainPage';
 import WelcomePage from './pages/WelcomePage';
 import DashboardPage from './pages/DashboardPage';
 import SurveyPage from './pages/SurveyPage';
@@ -8,7 +9,7 @@ import Navbar from './components/navigation/Navbar';
 import { ChecklistProvider } from './contexts/ChecklistContext';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('welcome');
+  const [currentPage, setCurrentPage] = useState('main');
   const [surveyAnswers, setSurveyAnswers] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -39,6 +40,8 @@ function App() {
 
   const renderPage = () => {
     switch (currentPage) {
+      case 'main':
+        return <MainPage onPageChange={handlePageChange} />;
       case 'welcome':
         return <WelcomePage onStartSurvey={handleStartSurvey} />;
       case 'survey':
@@ -47,13 +50,13 @@ function App() {
         return (
           <AIChecklistPage 
             surveyAnswers={surveyAnswers} 
-            onBackToSurvey={handleBackToSurvey}
+            onPageChange={handlePageChange}
           />
         );
       case 'dashboard':
-        return <DashboardPage />;
+        return <DashboardPage onPageChange={handlePageChange} />;
       default:
-        return <WelcomePage onStartSurvey={handleStartSurvey} />;
+        return <MainPage onPageChange={handlePageChange} />;
     }
   };
 

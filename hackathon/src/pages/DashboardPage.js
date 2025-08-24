@@ -13,7 +13,7 @@ const DashboardPage = () => {
     <div className="dashboard-page">
       <Header
         greeting="나의 이사 준비 현황"
-        subtitle="체크리스트를 확인하고 진행 상황을 파악해보세요"
+        subtitle="진행 상황을 파악해보세요!"
         showProgress={true}
         progressValue={
           currentChecklist && currentChecklist.items.length > 0
