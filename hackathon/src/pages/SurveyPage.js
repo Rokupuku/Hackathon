@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Survey from '../components/forms/Survey';
+import checklistService from '../services/ChecklistService';
 
 const SurveyPage = ({ onComplete }) => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -118,11 +119,28 @@ const SurveyPage = ({ onComplete }) => {
     }
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (currentStep < surveyData.length) {
       setCurrentStep(prev => prev + 1);
     } else {
-      onComplete(answers);
+      // 설문 완료 시 백엔드로 데이터 전송
+      try {
+        const selections = Object.entries(answers).map(([step, answer]) => ({
+          questionId: `question_${step}`,
+          answer: Array.isArray(answer) ? answer : [answer],
+          timestamp: new Date().toISOString()
+        }));
+
+        // 백엔드로 설문 결과 전송
+        await checklistService.generateChecklistFromSurvey(selections);
+        
+        // 성공 시 완료 콜백 호출
+        onComplete(answers);
+      } catch (error) {
+        console.error('설문 결과 전송 실패:', error);
+        // 에러가 발생해도 완료 콜백 호출 (로컬 처리)
+        onComplete(answers);
+      }
     }
   };
 

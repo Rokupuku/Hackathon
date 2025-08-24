@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/layout/Header';
 import WhiteBackground from '../components/common/WhiteBackground';
 import Checklist from '../components/common/Checklist';
 import { useChecklist } from '../contexts/ChecklistContext';
+import checklistService from '../services/ChecklistService';
 import './DashboardPage.css';
 
 const DashboardPage = () => {
-  const { state } = useChecklist();
+  const { state, actions } = useChecklist();
   const { currentChecklist } = state;
+  const [loading, setLoading] = useState(false);
+
+  // 페이지 로드 시 백엔드에서 체크리스트 조회
+  useEffect(() => {
+    const fetchChecklist = async () => {
+      setLoading(true);
+      try {
+        const backendChecklist = await checklistService.getMyChecklist();
+        if (backendChecklist && backendChecklist.items) {
+          // 백엔드 데이터를 로컬 상태와 동기화
+          actions.updateChecklist(backendChecklist);
+        }
+      } catch (error) {
+        console.error('체크리스트 조회 실패:', error);
+        // 에러가 발생해도 로컬 체크리스트는 표시
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchChecklist();
+  }, [actions]);
 
   return (
     <div className="dashboard-page">

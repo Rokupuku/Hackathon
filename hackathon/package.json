@@ -24,6 +24,8 @@
       "react-app/jest"
     ]
   },
+  "proxy": "https://jimcarry.onrender.com",
+
   "browserslist": {
     "production": [
       ">0.2%",

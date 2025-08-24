@@ -3,7 +3,7 @@ import Header from '../components/layout/Header';
 import WhiteBackground from '../components/common/WhiteBackground';
 import Checklist from '../components/common/Checklist';
 import { useChecklist } from '../contexts/ChecklistContext';
-import aiService from '../services/aiService';
+import checklistService from '../services/ChecklistService';
 import './AIChecklistPage.css';
 
 const AIChecklistPage = ({ surveyAnswers, onBackToSurvey }) => {
@@ -20,7 +20,14 @@ const AIChecklistPage = ({ surveyAnswers, onBackToSurvey }) => {
   const generateAIChecklist = async () => {
     setGenerating(true);
     try {
-      const checklist = await aiService.generateChecklist(surveyAnswers);
+      // 설문 답변을 백엔드 API 형식으로 변환
+      const selections = Object.entries(surveyAnswers).map(([question, answer]) => ({
+        questionId: question,
+        answer: Array.isArray(answer) ? answer : [answer],
+        timestamp: new Date().toISOString()
+      }));
+
+      const checklist = await checklistService.generateChecklistFromSurvey(selections);
       
       // 체크리스트에 고유 ID 추가
       const checklistWithId = {
