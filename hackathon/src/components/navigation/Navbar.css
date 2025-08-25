@@ -34,6 +34,12 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
+.menu-toggle.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+
 /* 햄버거 아이콘 */
 .hamburger-icon {
   display: flex;

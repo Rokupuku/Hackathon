@@ -4,9 +4,16 @@ import titleImage from '../assets/images/title.png';
 import cardImage from '../assets/images/cardimage.png';
 import reviewImage1 from '../assets/images/reviewimage1.png';
 import reviewImage from '../assets/images/reviewimage.png';
+import starImage from '../assets/images/star.png';
+import reviewlist from '../assets/images/reviewlist.png';
+import bestlist from '../assets/images/bestlist.png';
+import tipimage from '../assets/images/tiplist.png';
 
-const MainPage = ({ onPageChange }) => {
+const MainPage = ({ onPageChange, onMenuToggle, onModalStateChange }) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [showReviewModal, setShowReviewModal] = useState(false);
+  const [showTipModal, setShowTipModal] = useState(false);
+  const [showBestListModal, setShowBestListModal] = useState(false);
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
@@ -19,6 +26,25 @@ const MainPage = ({ onPageChange }) => {
     if (e.key === 'Enter') {
       handleSearch();
     }
+  };
+
+  // 모달을 열 때 토글메뉴를 닫는 함수들
+  const openReviewModal = () => {
+    setShowReviewModal(true);
+    onMenuToggle(false);
+    onModalStateChange('review', true);
+  };
+
+  const openTipModal = () => {
+    setShowTipModal(true);
+    onMenuToggle(false);
+    onModalStateChange('tip', true);
+  };
+
+  const openBestListModal = () => {
+    setShowBestListModal(true);
+    onMenuToggle(false);
+    onModalStateChange('bestList', true);
   };
 
   return (
@@ -46,7 +72,7 @@ const MainPage = ({ onPageChange }) => {
 
       {/* 메인 콘텐츠 */}
       <div className="main-content">
-        <h2 className="section-title">함께 이사해볼까요?</h2>
+        <p className="section-title">함께 이사해볼까요?</p>
         
         <div className="cards-section">
           {/* 이사준비 카드 (파란색) */}
@@ -58,11 +84,11 @@ const MainPage = ({ onPageChange }) => {
 
           {/* 이사업체 후기 카드들 (흰색) */}
           <div className="review-cards">
-            <div className="review-card" onClick={() => onPageChange('reviews')}>
+            <div className="review-card" onClick={openReviewModal}>
               <h4>이사업체 후기</h4>
             </div>
-            <div className="review-card" onClick={() => onPageChange('reviews')}>
-              <h4>이사업체 후기</h4>
+            <div className="review-card" onClick={openTipModal}>
+              <h4>이사 꿀팁</h4>
             </div>
           </div>
         </div>
@@ -77,7 +103,7 @@ const MainPage = ({ onPageChange }) => {
           {/* 공지사항 */}
           <div className="notice-bar">
             <span className="notice-label">공지</span>
-            <span className="notice-text">
+            <span className="notice-text" onClick={openBestListModal} style={{cursor: 'pointer'}}>
               8월달 BEST 이삿짐 후기 당첨자 명단</span>
             <span className="notice-arrow">→</span>
           </div>
@@ -92,7 +118,7 @@ const MainPage = ({ onPageChange }) => {
               <div className="review-content">
                 <div className="review-header">
                   <h4>신부동 베스트 이사</h4>
-                  <div className="rating">⭐⭐⭐⭐⭐</div>
+                  <img src={starImage} alt="star-image" />
                 </div>
                 <p className="review-text">
                   이번에 이삿짐을 옮기는데 아주 깔끔하고 친절하게 옮겨주셨어요! 
@@ -111,7 +137,7 @@ const MainPage = ({ onPageChange }) => {
               <div className="review-content">
                 <div className="review-header">
                   <h4>신부동 베스트 이사</h4>
-                  <div className="rating">⭐⭐⭐⭐⭐</div>
+                  <img src={starImage} alt="star-image" />
                 </div>
                 <p className="review-text">
                   이번에 이삿짐을 옮기는데 아주 깔끔하고 친절하게 옮겨주셨어요! 
@@ -130,7 +156,7 @@ const MainPage = ({ onPageChange }) => {
               <div className="review-content">
                 <div className="review-header">
                   <h4>신부동 베스트 이사</h4>
-                  <div className="rating">⭐⭐⭐⭐</div>
+                  <img src={starImage} alt="star-image" />
                 </div>
                 <p className="review-text">
                   이번에 이삿짐을 옮기는데 아주 깔끔하고 친절하게 옮겨주셨어요! 
@@ -141,6 +167,60 @@ const MainPage = ({ onPageChange }) => {
           </div>
         </div>
       </div>
+
+      {/* 이사업체 후기 모달 */}
+      {showReviewModal && (
+        <div className="modal-overlay" onClick={() => {
+          setShowReviewModal(false);
+          onModalStateChange('review', false);
+        }}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => {
+              setShowReviewModal(false);
+              onModalStateChange('review', false);
+            }}>
+              ✕
+            </button>
+            <img src={reviewlist} alt="이사업체 후기 목록" className="modal-image" />
+          </div>
+        </div>
+      )}
+
+      {/* 이사 꿀팁 모달 */}
+      {showTipModal && (
+        <div className="modal-overlay" onClick={() => {
+          setShowTipModal(false);
+          onModalStateChange('tip', false);
+        }}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => {
+              setShowTipModal(false);
+              onModalStateChange('tip', false);
+            }}>
+              ✕
+            </button>
+            <img src={tipimage} alt="이사 꿀팁 목록" className="modal-image" />
+          </div>
+        </div>
+      )}
+
+      {/* 추첨자 명단 모달 */}
+      {showBestListModal && (
+        <div className="modal-overlay" onClick={() => {
+          setShowBestListModal(false);
+          onModalStateChange('bestList', false);
+        }}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => {
+              setShowBestListModal(false);
+              onModalStateChange('bestList', false);
+            }}>
+              ✕
+            </button>
+            <img src={bestlist} alt="BEST 이삿짐 후기 당첨자 명단" className="modal-image" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

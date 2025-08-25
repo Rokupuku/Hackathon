@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
-const Navbar = ({ currentPage, onPageChange, onMenuToggle }) => {
+const Navbar = ({ currentPage, onPageChange, onMenuToggle, modalStates }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   // 메뉴 상태가 변경될 때마다 부모 컴포넌트에 알림
@@ -10,8 +10,19 @@ const Navbar = ({ currentPage, onPageChange, onMenuToggle }) => {
   }, [showMenu, onMenuToggle]);
 
   const toggleMenu = () => {
+    // 모달이 열려있으면 메뉴를 열 수 없음
+    if (modalStates && (modalStates.review || modalStates.tip || modalStates.bestList)) {
+      return;
+    }
     setShowMenu(!showMenu);
   };
+
+  // 모달이 열릴 때 메뉴가 열려있다면 자동으로 닫기
+  useEffect(() => {
+    if (modalStates && (modalStates.review || modalStates.tip || modalStates.bestList)) {
+      setShowMenu(false);
+    }
+  }, [modalStates]);
 
   const changePage = (page) => {
     onPageChange(page);
@@ -26,7 +37,10 @@ const Navbar = ({ currentPage, onPageChange, onMenuToggle }) => {
     <>
       {/* 토글 메뉴 */}
       <div className={`navbar ${showMenu ? 'hidden' : ''}`}>
-        <button className="menu-toggle" onClick={toggleMenu}>
+        <button 
+          className={`menu-toggle ${modalStates && (modalStates.review || modalStates.tip || modalStates.bestList) ? 'hidden' : ''}`} 
+          onClick={toggleMenu}
+        >
           <div className="hamburger-icon">
             <div className="hamburger-line"></div>
             <div className="hamburger-line"></div>

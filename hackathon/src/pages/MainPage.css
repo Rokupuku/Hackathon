@@ -1,7 +1,10 @@
+/* Pretendard 폰트 import */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
 .main-page {
   min-height: 100vh;
   padding: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 }
 
 /* 헤더 */
@@ -70,7 +73,7 @@
   flex: 1;
   border: none;
   outline: none;
-  padding: 18px 25px;
+  padding: 8px 25px;
   font-size: 16px;
   border-radius: 25px;
   background: transparent;
@@ -113,7 +116,7 @@
 .section-title {
   display: flex;
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 900;
   color: #333;
   text-align: center;
   margin-left: 5px;
@@ -184,7 +187,7 @@
 }
 
 .review-card {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: #4575ff;
   border-radius: 15px;
   padding: 25px;
   cursor: pointer;
@@ -201,7 +204,7 @@
 
 .review-card h4 {
   font-size: 16px;
-  color: #333;
+  color: white;
   margin: 0;
   font-weight: 600;
 }
@@ -209,7 +212,6 @@
 /* BEST 후기 섹션 */
 .best-reviews-section {
   margin: 0 35px 35px 35px;
-  padding-top: 25px;
 }
 
 .section-header {
@@ -271,6 +273,8 @@
 }
 
 .notice-text {
+  display: flex;
+  align-items: left;
   flex: 1;
   color: #333;
   font-size: 12px;
@@ -400,13 +404,13 @@
   }
   
   .section-title {
-    padding: 35px 25px 0 25px;
+    padding: 5px 25px 0 25px;
     font-size: 20px;
     margin-bottom: 0;
   }
   
   .cards-section {
-    margin: 25px;
+    margin: 25px 25px 0 25px;
     flex-direction: column;
     gap: 18px;
   }
@@ -446,4 +450,59 @@
     padding: 18px;
     margin-bottom: 22px;
   }
-} 
+}
+
+/* 모달 스타일 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #0040e0;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: #ff3742;
+  transform: scale(1.1);
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}

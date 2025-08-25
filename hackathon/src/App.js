@@ -12,6 +12,11 @@ function App() {
   const [currentPage, setCurrentPage] = useState('main');
   const [surveyAnswers, setSurveyAnswers] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [modalStates, setModalStates] = useState({
+    review: false,
+    tip: false,
+    bestList: false
+  });
 
   const handleStartSurvey = () => {
     setCurrentPage('survey');
@@ -38,10 +43,21 @@ function App() {
     setIsMenuOpen(isOpen);
   };
 
+  const updateModalState = (modalType, isOpen) => {
+    setModalStates(prev => ({
+      ...prev,
+      [modalType]: isOpen
+    }));
+  };
+
   const renderPage = () => {
     switch (currentPage) {
       case 'main':
-        return <MainPage onPageChange={handlePageChange} />;
+        return <MainPage 
+          onPageChange={handlePageChange} 
+          onMenuToggle={handleMenuToggle}
+          onModalStateChange={updateModalState}
+        />;
       case 'welcome':
         return <WelcomePage onStartSurvey={handleStartSurvey} />;
       case 'survey':
@@ -68,6 +84,7 @@ function App() {
           currentPage={currentPage}
           onPageChange={handlePageChange}
           onMenuToggle={handleMenuToggle}
+          modalStates={modalStates}
         />
 
         {/* 메인 콘텐츠 */}
