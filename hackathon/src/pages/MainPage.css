@@ -5,6 +5,13 @@
 }
 
 /* 헤더 */
+.title-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -39,8 +46,7 @@
 
 /* 검색바 */
 .search-section {
-  margin-top: 70px;
-  margin-bottom: 10px;
+  margin-top: 20px;
   padding: 0 30px;
 }
 
@@ -51,8 +57,7 @@
   background: white;
   border: 1px solid #0040e0;
   border-radius: 30px;
-  padding: 8px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
@@ -126,10 +131,11 @@
 
 .preparation-card {
   flex: 2;
-  background: #0040e0;
+  background: #0040ef;
   border-radius: 20px;
   padding: 30px;
   color: white;
+  display: flex;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
@@ -142,45 +148,17 @@
   box-shadow: 0 12px 30px rgba(74, 144, 226, 0.3);
 }
 
-.card-content {
+.card-image {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-}
-
-.card-text h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.card-text p {
-  font-size: 16px;
-  line-height: 1.5;
-  opacity: 0.95;
-  max-width: 220px;
-}
-
-.card-illustration {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-}
-
-.trash-bag, .box {
-  font-size: 30px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  align-items: center;
+}
+
+.card-image img{
+  width: 280px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .arrow-icon {
@@ -265,15 +243,16 @@
 
 /* 공지사항 */
 .notice-bar {
-  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  height: 40px;
+  background: #dddfe5;
   border-radius: 15px;
-  padding: 22px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 10px;
   margin-bottom: 28px;
-  border: 1px solid #90caf9;
+  border: none;
   transition: all 0.3s ease;
+  padding: 10px;
 }
 
 .notice-bar:hover {
@@ -282,24 +261,24 @@
 }
 
 .notice-label {
-  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  background: #0040ef;
   color: white;
-  padding: 8px 14px;
+  padding: 5px 10px;
   border-radius: 8px;
   font-size: 13px;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.2);
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
 }
 
 .notice-text {
   flex: 1;
   color: #333;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .notice-arrow {
-  color: #2196f3;
+  color: black;
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -337,6 +316,13 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
+}
+
+.review-image img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .image-placeholder {

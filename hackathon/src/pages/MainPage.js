@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './MainPage.css';
+import titleImage from '../assets/images/title.png';
+import cardImage from '../assets/images/cardimage.png';
+import reviewImage1 from '../assets/images/reviewimage1.png';
+import reviewImage from '../assets/images/reviewimage.png';
 
 const MainPage = ({ onPageChange }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -18,7 +22,12 @@ const MainPage = ({ onPageChange }) => {
   };
 
   return (
+
     <div className="main-page">
+      <div className="title-image">
+        <img src={titleImage} alt="title-image" />
+      </div>
+
       {/* 검색바 */}
       <div className="search-section">
         <div className="search-bar">
@@ -42,13 +51,9 @@ const MainPage = ({ onPageChange }) => {
         <div className="cards-section">
           {/* 이사준비 카드 (파란색) */}
           <div className="preparation-card" onClick={() => onPageChange('survey')}>
-            <div className="card-content">
-              <div className="card-text">
-                <h3>이사준비</h3>
-                <p>당신만을 위한 체크리스트로 이사 준비를 지금 바로 시작해보세요!</p>
-              </div>
+            <div className="card-image">
+              <img src={cardImage} alt="card-image" />
             </div>
-            <div className="arrow-icon">→</div>
           </div>
 
           {/* 이사업체 후기 카드들 (흰색) */}
@@ -72,8 +77,8 @@ const MainPage = ({ onPageChange }) => {
           {/* 공지사항 */}
           <div className="notice-bar">
             <span className="notice-label">공지</span>
-            <span className="notice-text">8월달 BEST
-              <br/>이삿짐 후기 당첨자 명단</span>
+            <span className="notice-text">
+              8월달 BEST 이삿짐 후기 당첨자 명단</span>
             <span className="notice-arrow">→</span>
           </div>
 
@@ -82,8 +87,7 @@ const MainPage = ({ onPageChange }) => {
             {/* 첫 번째 후기 */}
             <div className="review-item">
               <div className="review-image">
-                <div className="image-placeholder">아이콘1</div>
-                <span className="image-number">2424</span>
+                <img src={reviewImage1} alt="review-image" />
               </div>
               <div className="review-content">
                 <div className="review-header">
@@ -102,8 +106,7 @@ const MainPage = ({ onPageChange }) => {
             {/* 두 번째 후기 */}
             <div className="review-item">
               <div className="review-image">
-                <div className="image-placeholder">아이콘2</div>
-                <span className="image-number">2424</span>
+                <img src={reviewImage} alt="review-image" />
               </div>
               <div className="review-content">
                 <div className="review-header">
@@ -122,8 +125,7 @@ const MainPage = ({ onPageChange }) => {
             {/* 세 번째 후기 */}
             <div className="review-item">
               <div className="review-image">
-                <div className="image-placeholder">아이콘3</div>
-                <span className="image-number">2424</span>
+               <img src={reviewImage} alt="review-image" />
               </div>
               <div className="review-content">
                 <div className="review-header">
