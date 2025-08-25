@@ -100,10 +100,6 @@
   transition: all 0.3s ease;
 }
 
-.search-button:hover {
-  transform: scale(1.05);
-}
-
 /* 메인 콘텐츠 */
 .main-content {
   background: white;
