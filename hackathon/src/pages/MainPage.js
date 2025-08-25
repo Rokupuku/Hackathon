@@ -8,6 +8,7 @@ import starImage from '../assets/images/star.png';
 import reviewlist from '../assets/images/reviewlist.png';
 import bestlist from '../assets/images/bestlist.png';
 import tipimage from '../assets/images/tiplist.png';
+import searchIcon from '../assets/images/search-icon.png';
 
 const MainPage = ({ onPageChange, onMenuToggle, onModalStateChange }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -65,7 +66,7 @@ const MainPage = ({ onPageChange, onMenuToggle, onModalStateChange }) => {
             onKeyPress={handleKeyPress}
           />
           <button className="search-button" onClick={handleSearch}>
-            아이콘1
+            <img src={searchIcon} alt="search-icon" />
           </button>
         </div>
       </div>
