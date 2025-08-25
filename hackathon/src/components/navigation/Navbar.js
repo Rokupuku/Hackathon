@@ -43,7 +43,7 @@ const Navbar = ({ currentPage, onPageChange, onMenuToggle }) => {
       {/* 사이드바 메뉴 */}
       <div className={`sidebar ${showMenu ? 'open' : ''}`}>
         <div className="sidebar-header">
-          <h3>이삿짐캐리</h3>
+          <h3>모두의 이삿짐</h3>
           <button className="close-button" onClick={closeMenu}>
             ✕
           </button>
